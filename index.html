@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Magnetic / Outline / Pulse Glow Cards</title>
+
+  <!--  Google Fonts  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!--  stylesheet -->
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="magnetic-glow-demo">
+    <div class="controls-container">
+      <div class="controls">
+        <button class="control-btn active" data-effect="magnetic">Magnetic Glow</button>
+        <button class="control-btn" data-effect="outline">Outline Glow</button>
+        <button class="control-btn" data-effect="pulse">Pulse Glow</button>
+      </div>
+    </div>
+
+    <div class="card-grid">
+      <!-- Product Card -->
+      <div class="glow-card" data-glow-color="#5D8BF4">
+        <div class="glow-effect"></div>
+        <div class="card-content">
+          <div class="card-img">
+            <img src="./res/watch.jpg" alt="Product">
+            <div class="card-badge">-15%</div>
+          </div>
+          <div class="card-body">
+            <div class="card-tag">Limited Edition</div>
+            <h2 class="card-title">Fossil Bannon Silver</h2>
+            <div class="card-rating" id="card-rating">
+              <span class="star" data-value="1">&#9733;</span>
+              <span class="star" data-value="2">&#9733;</span>
+              <span class="star" data-value="3">&#9733;</span>
+              <span class="star" data-value="4">&#9733;</span>
+              <span class="star" data-value="5">&#9733;</span>
+              <span class="rating-count" id="rating-count">4.2</span>
+            </div>
+            <p class="card-price"><span class="price-original">$210</span> $178.50</p>
+           
+            <div class="card-actions">
+              <a href="" class="card-btn primary">Buy Now</a>
+              <a href="" class="card-btn primary">Add to Cart</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+     <div class="bottom-text">Hitesh Choudhary Dev Assignments</div>
+
+
+
+  <!-- Script -->
+  <script src="./app.js" defer></script>
+</body>
+</html>

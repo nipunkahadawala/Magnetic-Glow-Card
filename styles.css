@@ -1,0 +1,530 @@
+/* Google font via @import so CSS stays self-contained */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --color-background: #0a0a0a;
+  --color-card: #111111;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: rgba(255, 255, 255, 0.7);
+  --color-text-tertiary: rgba(255, 255, 255, 0.5);
+  --color-border: rgba(255, 255, 255, 0.1);
+
+  --primary-blue: #5d8bf4;
+  --primary-red: #ff6b6b;
+  --primary-cyan: #48dbfb;
+  --primary-green: #1dd1a1;
+
+  --glow-size: 50vh;
+  --glow-blur: 60px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", -apple-system, system-ui, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button,
+a {
+  font-family: inherit;
+}
+
+.magnetic-glow-demo {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.controls-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+
+.controls {
+  display: flex;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.control-btn {
+  padding: 0.75rem 1.25rem;
+  color: var(--color-text-primary);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.control-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.control-btn.active {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.card-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh; /* Adjust as needed */
+}
+
+.glow-card {
+  position: relative;
+  background-color: var(--color-card);
+  overflow: hidden;
+  cursor: pointer;
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+
+.glow-card:hover {
+  transform: translateY(-8px);
+}
+
+.card-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-img {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+
+.card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.glow-card:hover .card-img img {
+  transform: scale(1.05);
+}
+
+.card-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--primary-red);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  z-index: 3;
+}
+
+.card-body {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  /* margin-bottom: 0.75rem; */
+  letter-spacing: -0.01em;
+}
+
+.card-tag {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+  color:var(--primary-red);
+  background: rgba(255, 255, 255, 0.00);
+  border: 1px solid rgba(65, 64, 64, 0.2); /* light border */
+}
+
+.card-rating {
+  color: var(--color-text-secondary);
+  /* margin-bottom: 0.75rem; */
+}
+
+.card-rating .star {
+  cursor: pointer;
+  font-size: 1.5em;
+  transition: color 0.2s;
+  color: #ccc;
+}
+
+.card-rating .rating-count {
+  margin-left: 8px;
+  font-weight: bold;
+}
+
+.star-outline {
+  opacity: 0.3;
+}
+
+.rating-count {
+  font-size: 0.875rem;
+  color: var(--color-text-tertiary);
+  margin-left: 0.25rem;
+}
+
+.card-price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+  margin-top: auto;
+}
+
+.price-original {
+  font-size: 1rem;
+  text-decoration: line-through;
+  color: var(--color-text-tertiary);
+  margin-right: 0.5rem;
+}
+
+.card-text {
+  color: var(--color-text-secondary);
+  margin-bottom: 1.5rem;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+
+
+.card-actions {
+  display: flex;
+  justify-content: center;   /* center horizontally */
+  gap: 12px;                 /* space between buttons */
+  margin-top: 16px;          /* spacing from content above */
+}
+
+.card-btn {
+  display  .card-actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1.25rem;
+    justify-content: stretch;
+  }
+  
+  .card-btn {
+    flex: 1 1 0;
+    padding: 0.875rem 1.25rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    margin: 0;
+  }
+  
+  .card-btn.primary:hover {
+    background-color: #1a1a1a;
+    color: var(--primary-blue);
+  }
+  
+  /* Optional: Make sure card-body aligns content vertically */
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    height: 100%;
+    justify-content: flex-start;
+  }
+  
+  /* Optional: Add spacing between price and actions */
+  .card-price {
+    margin-bottom: 0.75rem;
+    margin-top: auto;
+  }
+  
+  /* ...existing code... */: inline;
+  width: 100%;
+  padding: 0.875rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+  text-decoration: none;
+}
+
+.card-btn.primary {
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+}
+
+.card-btn.primary:hover {
+  background-color: #1a1a1a;
+}
+
+.profile-content {
+  padding: 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.profile-banner {
+  height: 80px;
+  background: linear-gradient(to right, var(--primary-red), #ff9f43);
+}
+
+.profile-img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: -45px auto 1rem;
+  border: 4px solid var(--color-card);
+  position: relative;
+  z-index: 3;
+}
+
+.profile-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-job {
+  color: var(--color-text-secondary);
+  margin-bottom: 1.5rem;
+  padding: 0 1.5rem;
+}
+
+.profile-stats {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 1.5rem 0;
+  padding: 0 1rem;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--color-text-tertiary);
+}
+
+.feature-card-content {
+  padding: 2rem;
+  text-align: center;
+}
+
+.card-icon {
+  width: 54px;
+  height: 54px;
+  margin: 0 auto 1.25rem;
+  color: var(--primary-cyan);
+}
+
+.card-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.feature-points {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+  text-align: left;
+}
+
+.feature-point {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9375rem;
+  color: var(--color-text-secondary);
+}
+
+.feature-point svg {
+  width: 18px;
+  height: 18px;
+  color: var(--primary-cyan);
+  flex-shrink: 0;
+}
+
+.article-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1.25rem 0 1.5rem;
+}
+
+.meta-author {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.meta-author img {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.8125rem;
+  color: var(--color-text-tertiary);
+}
+
+.meta-item svg {
+  width: 16px;
+  height: 16px;
+}
+
+.glow-effect {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+/* Effects */
+.magnetic-glow .glow-effect {
+  background: radial-gradient(
+    circle at var(--x, 50%) var(--y, 50%),
+    var(--glow-color, rgba(93, 139, 244, 0.5)) 0%,
+    transparent 55%
+  );
+  filter: blur(var(--glow-blur));
+  opacity: 0;
+  mix-blend-mode: screen;
+}
+
+.magnetic-glow .glow-card:hover .glow-effect {
+  opacity: 1;
+}
+
+.outline-glow .glow-card {
+  box-shadow: 0 0 0 1px var(--color-border);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.outline-glow .glow-card:hover {
+  box-shadow:
+    0 0 0 2px var(--glow-color, rgba(93, 139, 244, 0.5)),
+    0 0 30px 2px var(--glow-color, rgba(93, 139, 244, 0.25));
+}
+
+.outline-glow .glow-effect {
+  display: none;
+}
+
+.pulse-glow .glow-card {
+  transition: transform 0.3s ease;
+}
+
+.pulse-glow .glow-effect {
+  opacity: 0;
+  background: radial-gradient(
+    circle at center,
+    var(--glow-color, rgba(93, 139, 244, 0.5)) 0%,
+    transparent 55%
+  );
+  filter: blur(var(--glow-blur));
+  mix-blend-mode: screen;
+}
+
+.pulse-glow .glow-card:hover .glow-effect {
+  opacity: 1;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.3; transform: scale(0.9); }
+  50% { opacity: 0.8; transform: scale(1.1); }
+  100% { opacity: 0.3; transform: scale(0.9); }
+}
+
+/* Per-card default glow colors via position */
+.glow-card:nth-child(1) { --glow-color: rgba(93, 139, 244, 0.5); }
+.glow-card:nth-child(2) { --glow-color: rgba(255, 107, 107, 0.5); }
+.glow-card:nth-child(3) { --glow-color: rgba(72, 219, 251, 0.5); }
+.glow-card:nth-child(4) { --glow-color: rgba(29, 209, 161, 0.5); }
+
+.demo-footer {
+  text-align: center;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text-tertiary);
+  font-size: 0.875rem;
+}
+
+.footer-link {
+  color: var(--primary-blue);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+  color: var(--color-text-primary);
+}
+
+@media (max-width: 768px) {
+  .magnetic-glow-demo { padding: 1rem; }
+  .card-grid { grid-template-columns: 1fr; }
+  .controls { flex-wrap: wrap; justify-content: center; }
+  .card-img { height: 180px; }
+}
+
+
+
+/* center text */
+  .bottom-text {
+      position: fixed;
+      bottom: 10px;        /* distance from bottom */
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 17px;
+      color: #333;}
